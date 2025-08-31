@@ -1,0 +1,31 @@
+name: MiPlugin
+main: brayanag2000\MiPlugin\Main
+version: 1.0.0
+api: 5.0.0
+author: brayanag2000
+description: "Plugin de ejemplo para PocketMine-MP."
+website: "https://github.com/brayanag2000"
+
+commands:
+  ejemplo:
+    description: "Muestra un mensaje (o texto personalizado)."
+    usage: "/ejemplo [texto]"
+    permission: miplugin.command.ejemplo
+  recargar:
+    description: "Recarga la configuración del plugin."
+    usage: "/recargar"
+    permission: miplugin.command.recargar
+
+permissions:
+  miplugin.command.ejemplo:
+    description: "Permite usar /ejemplo."
+    default: true
+  miplugin.command.recargar:
+    description: "Permite recargar la configuración del plugin."
+    default: op
+  miplugin.*:
+    description: "Acceso a todos los permisos de MiPlugin."
+    default: op
+    children:
+      miplugin.command.ejemplo: true
+      miplugin.command.recargar: true
